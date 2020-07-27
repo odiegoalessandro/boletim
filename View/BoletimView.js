@@ -25,13 +25,13 @@ class BoletimView{
             view_bim3.innerText = this._bim3
             let view_bim4 = document.createElement('td')
             view_bim4.innerText = this._bim4
-            let view_media = document.createElement('td')
-            view_media.innerText = this.model.media()
-            if(this.model.media() < 5){
-                view_media.style.color = "red"
+            this.view_media = document.createElement('td')
+            this.view_media.innerText = this.model.media()
+            if(this.model.reprova() == false){
+                this.view_media.style.color = "blue"
             }
-            else{
-                view_media.style.color = "blue"
+            if(this.model.reprova() == true){
+                this.view_media.style.color = "red"
             }
             criaTr.appendChild(view_nome)
             criaTr.appendChild(view_ra)
@@ -39,7 +39,7 @@ class BoletimView{
             criaTr.appendChild(view_bim2)
             criaTr.appendChild(view_bim3)
             criaTr.appendChild(view_bim4)
-            criaTr.appendChild(view_media)
+            criaTr.appendChild(this.view_media)
             this.corpo_tabela.appendChild(criaTr)
         }
         else{
