@@ -9,7 +9,8 @@ class BoletimView{
         this._bim3 = document.getElementById('bim3').value
         this._bim4 = document.getElementById('bim4').value
         this._model = modelo
-        this._media = this._model
+        this._media = this._model.media()
+        this.reprova = this._model.reprova()
         this.corpo_tabela = document.getElementById('corpo-tabela')
     }
     mostraNaTela(modelo){
@@ -29,6 +30,12 @@ class BoletimView{
             view_bim4.innerText = this._bim4
             this.view_media = document.createElement('td')
             this.view_media.innerText = this._media
+            if(this.reprova == false){
+                this.view_media.style.color = "blue"
+            }
+            else{
+                this.view_media.style.color = "red"
+            }
             criaTr.appendChild(view_nome)
             criaTr.appendChild(view_ra)
             criaTr.appendChild(view_bim1)

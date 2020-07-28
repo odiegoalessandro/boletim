@@ -36,8 +36,8 @@
    <script>
         this._btn_add = document.getElementById('btn-add')
         this._btn_add.addEventListener('click', () => {
-            let view = new BoletimView(new BoletimModel().media())
-            view.mostraNaTela()
+            let model = new BoletimView(new BoletimModel())
+            model.mostraNaTela()
             this._nome = document.getElementById('nome').value = ""
             this._ra = document.getElementById('registro-do-aluno').value = ""
             this._bim1 = document.getElementById('bim1').value = ""
