@@ -17,7 +17,7 @@
                 <th>Media</th>
             </tr>
        </thead>
-       <tbody id="corpo-tabela">
+       <tbody id="corpo-tabela" class="corpo-tabela">
        </tbody>
    </table>
    <section class="container">
@@ -38,21 +38,21 @@
         this._btn_add.addEventListener('click', () => {
             let model = new BoletimView(new BoletimModel())
             model.mostraNaTela()
-            this._nome = document.getElementById('nome').value = ""
-            this._ra = document.getElementById('registro-do-aluno').value = ""
-            this._bim1 = document.getElementById('bim1').value = ""
-            this._bim2 = document.getElementById('bim2').value = ""
-            this._bim3 = document.getElementById('bim3').value = ""
-            this._bim4 = document.getElementById('bim4').value = ""
+            this._nome = document.getElementById('nome') .value = ""
+            this._ra = document.getElementById('registro-do-aluno') .value = ""
+            this._bim1 = document.getElementById('bim1') .value = ""
+            this._bim2 = document.getElementById('bim2') .value = ""
+            this._bim3 = document.getElementById('bim3') .value = ""
+            this._bim4 = document.getElementById('bim4') .value = ""
         })
         this._btn_remove = document.getElementById('btn-remove')
         this._btn_remove.addEventListener('click', () => {
-            this._nome = document.getElementById('nome').value = ""
-            this._ra = document.getElementById('registro-do-aluno').value = ""
-            this._bim1 = document.getElementById('bim1').value = ""
-            this._bim2 = document.getElementById('bim2').value = ""
-            this._bim3 = document.getElementById('bim3').value = ""
-            this._bim4 = document.getElementById('bim4').value = ""
+            this._nome = document.getElementById('nome') .value = ""  
+            this._ra = document.getElementById('registro-do-aluno') .value = "" 
+            this._bim1 = document.getElementById('bim1') .value = ""  
+            this._bim2 = document.getElementById('bim2') .value = ""  
+            this._bim3 = document.getElementById('bim3') .value = ""  
+            this._bim4 = document.getElementById('bim4') .value = ""  
             this.corpo_tabela = document.getElementById('corpo-tabela')
         })
     </script>
