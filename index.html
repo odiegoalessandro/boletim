@@ -5,28 +5,31 @@
     <link rel="stylesheet" href="./assents/style.css">
 </head>
 <body>
-   <table class="table" id="table" border="1">
+   <table class="table"border="1">
        <thead id="cabeca-tabela">
             <tr>
                 <th>Nome</th>
                 <th>RA</th>
-                <th>1 Bimestre</th>
-                <th>2 Bimestre</th>
-                <th>3 Bimestre</th>
-                <th>4 Bimestre</th>
+                <th>Materia</th>
+                <th>1˚ Bimestre</th>
+                <th>2˚ Bimestre</th>
+                <th>3˚ Bimestre</th>
+                <th>4˚ Bimestre</th>
                 <th>Media</th>
             </tr>
        </thead>
-       <tbody id="corpo-tabela" class="corpo-tabela">
+       <tbody id="corpo-tabela">
+
        </tbody>
    </table>
    <section class="container">
         <input type="text" class="input center" id="nome" placeholder="Nome do aluno" required>
         <input type="number" id="registro-do-aluno" class="input center" placeholder="RA do aluno" required>
-        <input type="number" id="bim1" class="input center" required maxlength="2" placeholder="Nota do primeiro bimestre">
-        <input type="number" id="bim2" class="input center" required maxlength="2" placeholder="Nota do segundo bimestre">
-        <input type="number" id="bim3" class="input center" maxlength="2" placeholder="Nota do terceiro bimestre" required>
-        <input type="number" id="bim4" class="input center" maxlength="2" placeholder="Nota do quarto bimestre" required>
+        <input type="text" id="materia" class="input center" placeholder="Materia" required>
+        <input type="number" id="bim1" class="input center" maxlength="2" placeholder="Nota do 1˚ bimestre" required>
+        <input type="number" id="bim2" class="input center" maxlength="2" placeholder="Nota do 2˚ bimestre" required>
+        <input type="number" id="bim3" class="input center" maxlength="2" placeholder="Nota do 3˚ bimestre" required>
+        <input type="number" id="bim4" class="input center" maxlength="2" placeholder="Nota do 4˚ bimestre" required>
         <button class="btn center" id="btn-add">Adicionar</button>
         <button class="btn center" id="btn-remove">Limpar</button>
    </section>
@@ -34,27 +37,26 @@
    <script src="./Model/BoletimModel.js"></script>
    <script src="./View/BoletimView.js"></script>
    <script>
-        this._btn_add = document.getElementById('btn-add')
-        this._btn_add.addEventListener('click', () => {
-            let model = new BoletimView(new BoletimModel())
-            model.mostraNaTela()
-            this._nome = document.getElementById('nome') .value = ""
-            this._ra = document.getElementById('registro-do-aluno') .value = ""
-            this._bim1 = document.getElementById('bim1') .value = ""
-            this._bim2 = document.getElementById('bim2') .value = ""
-            this._bim3 = document.getElementById('bim3') .value = ""
-            this._bim4 = document.getElementById('bim4') .value = ""
+        var adiciona = document.getElementById('btn-add')
+        var remove = document.getElementById('btn-remove')
+        adiciona.addEventListener('click', () => {
+            new BoletimController()
+            this._nome = document.getElementById('nome').value = ""
+            this._ra = document.getElementById('registro-do-aluno').value = ""
+            this._materia = document.getElementById('materia').value = ""
+            this.bim1 = document.getElementById('bim1').value = ""
+            this.bim2 = document.getElementById('bim2').value = "" 
+            this.bim3 = document.getElementById('bim3').value = "" 
+            this.bim4 = document.getElementById('bim4').value = "" 
         })
-        this._btn_remove = document.getElementById('btn-remove')
-        this._btn_remove.addEventListener('click', () => {
-            this._nome = document.getElementById('nome') .value = ""  
-            this._ra = document.getElementById('registro-do-aluno') .value = "" 
-            this._bim1 = document.getElementById('bim1') .value = ""  
-            this._bim2 = document.getElementById('bim2') .value = ""  
-            this._bim3 = document.getElementById('bim3') .value = ""  
-            this._bim4 = document.getElementById('bim4') .value = ""  
-            this.corpo_tabela = document.getElementById('corpo-tabela')
+        remove.addEventListener('click', () => {
+            this._nome = document.getElementById('nome').value = ""
+            this._ra = document.getElementById('registro-do-aluno').value = ""
+            this._materia = document.getElementById('materia').value = ""
+            this.bim1 = document.getElementById('bim1').value = ""
+            this.bim2 = document.getElementById('bim2').value = "" 
+            this.bim3 = document.getElementById('bim3').value = "" 
+            this.bim4 = document.getElementById('bim4').value = "" 
         })
     </script>
 </body>
-</html>

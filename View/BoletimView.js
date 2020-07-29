@@ -1,44 +1,69 @@
 class BoletimView{
-    constructor(modelo){
-        this._nome = document.getElementById('nome').value
-        this._ra = document.getElementById('registro-do-aluno').value
-        this._bim1 = document.getElementById('bim1').value
-        this._bim2 = document.getElementById('bim2').value
-        this._bim3 = document.getElementById('bim3').value
-        this._bim4 = document.getElementById('bim4').value
-        this.model = modelo
-        this._media = modelo.media()
-        this.corpo_tabela = document.getElementById('corpo-tabela')
+    constructor(nome,materia, ra, bim1, bim2, bim3, bim4, tabela, media){
+        this._nome = nome
+        this._materia = materia
+        this._ra = ra
+        this._bim1 = bim1
+        this._bim2 = bim2
+        this._bim3 = bim3
+        this._bim4 = bim4
+        this._media = media
+        this._tabela = tabela       
     }
-    mostraNaTela(modelo){
-        if(this._nome.length > 0 && this._ra > 0 && this._bim1 > 0 && this._bim2 > 0 && this._bim3 > 0 && this._bim4 > 0 ){
-            this.corpo_tabela.innerHTML = 
-            `
-                <tr>
-                    <td>${this._nome}</td>
-                    <td>${this._ra}</td>
-                    <td>${this._bim1}</td>
-                    <td>${this._bim2}</td>
-                    <td>${this._bim3}</td>
-                    <td>${this._bim4}</td>
-                    <td id="media">${this._media}</td>
-                </tr>
-            `
-            let media = document.getElementById('media') 
-            if(this.model.reprova() === false){
-                media.style.color = "blue"
-                console.log('Aprovado')
+    mostraNaTela(){
+        if(this._nome.length > 0
+            && this._materia.length > 0
+            && this._ra.length > 0
+            && this._bim1.length > 0
+            && this._bim2.length > 0
+            && this._bim3.length > 0
+            && this._bim4.length > 0){
+            this.tr_boletim = document.createElement('tr') 
+        
+            this.td_nome = document.createElement('td')
+            this.td_nome.innerText = this._nome
+        
+            this.td_materia = document.createElement('td')
+            this.td_materia.innerText = this._materia
+        
+            this.td_ra = document.createElement('td')
+            this.td_ra.innerText = this._ra
+            
+            this.td_bim1 = document.createElement('td')
+            this.td_bim1.innerText = this._bim1
+          
+            this.td_bim2 = document.createElement('td')
+            this.td_bim2.innerText = this._bim2
+           
+            this.td_bim3 = document.createElement('td')
+            this.td_bim3.innerText = this._bim3
+            
+            this.td_bim4 = document.createElement('td')
+            this.td_bim4.innerText = this._bim4
+            
+            this.td_media = document.createElement('td')
+            this.td_media.innerText = this._media
+
+            this.tr_boletim.appendChild(this.td_nome)
+            this.tr_boletim.appendChild(this.td_materia)
+            this.tr_boletim.appendChild(this.td_ra)
+            this.tr_boletim.appendChild(this.td_bim1)
+            this.tr_boletim.appendChild(this.td_bim2)
+            this.tr_boletim.appendChild(this.td_bim3)
+            this.tr_boletim.appendChild(this.td_bim4)
+            this.tr_boletim.appendChild(this.td_media)
+
+            this._tabela.appendChild(this.tr_boletim)
+
+            if(this._media >= 5){
+                this.td_media.style.color = "blue"
             }
             else{
-                media.style.color = "red"
-                console.log()
+                this.td_media.style.color = "red"
             }
         }
         else{
             alert('invalido')
-        }
-    }
-    update(modelo){
-        this.mostraNaTela(new modelo)
+       }
     }
 }
