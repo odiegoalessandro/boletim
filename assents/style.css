@@ -52,3 +52,9 @@ input[type=number] {
 .btn:hover{
     background: #288020;
 }
+.reprovado{
+    color: red;
+}
+.aprovado{
+    color: blue;
+}

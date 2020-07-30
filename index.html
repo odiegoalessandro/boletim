@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,41 +23,24 @@
 
        </tbody>
    </table>
+   
    <section class="container">
-        <input type="text" class="input center" id="nome" placeholder="Nome do aluno" required>
-        <input type="number" id="registro-do-aluno" class="input center" placeholder="RA do aluno" required>
-        <input type="text" id="materia" class="input center" placeholder="Materia" required>
-        <input type="number" id="bim1" class="input center" maxlength="2" placeholder="Nota do 1˚ bimestre" required>
-        <input type="number" id="bim2" class="input center" maxlength="2" placeholder="Nota do 2˚ bimestre" required>
-        <input type="number" id="bim3" class="input center" maxlength="2" placeholder="Nota do 3˚ bimestre" required>
-        <input type="number" id="bim4" class="input center" maxlength="2" placeholder="Nota do 4˚ bimestre" required>
-        <button class="btn center" id="btn-add">Adicionar</button>
-        <button class="btn center" id="btn-remove">Limpar</button>
+        <form id="form">
+            <input type="text" class="input center" id="nome" placeholder="Nome do aluno" required>
+            <input type="number" id="registro-do-aluno" class="input center" placeholder="RA do aluno" required>
+            <input type="text" id="materia" class="input center" placeholder="Materia" required>
+            <input type="number" id="bim1" class="input center" maxlength="2" placeholder="Nota do 1˚ bimestre" required>
+            <input type="number" id="bim2" class="input center" maxlength="2" placeholder="Nota do 2˚ bimestre" required>
+            <input type="number" id="bim3" class="input center" maxlength="2" placeholder="Nota do 3˚ bimestre" required>
+            <input type="number" id="bim4" class="input center" maxlength="2" placeholder="Nota do 4˚ bimestre" required>
+            <button class="btn center" id="btn-add" onclick="controller.mandaParaView(event)">Adicionar</button>
+        </form>
    </section>
+
    <script src="./Controller/BoletimController.js"></script>
    <script src="./Model/BoletimModel.js"></script>
    <script src="./View/BoletimView.js"></script>
    <script>
-        var adiciona = document.getElementById('btn-add')
-        var remove = document.getElementById('btn-remove')
-        adiciona.addEventListener('click', () => {
-            new BoletimController()
-            this._nome = document.getElementById('nome').value = ""
-            this._ra = document.getElementById('registro-do-aluno').value = ""
-            this._materia = document.getElementById('materia').value = ""
-            this.bim1 = document.getElementById('bim1').value = ""
-            this.bim2 = document.getElementById('bim2').value = "" 
-            this.bim3 = document.getElementById('bim3').value = "" 
-            this.bim4 = document.getElementById('bim4').value = "" 
-        })
-        remove.addEventListener('click', () => {
-            this._nome = document.getElementById('nome').value = ""
-            this._ra = document.getElementById('registro-do-aluno').value = ""
-            this._materia = document.getElementById('materia').value = ""
-            this.bim1 = document.getElementById('bim1').value = ""
-            this.bim2 = document.getElementById('bim2').value = "" 
-            this.bim3 = document.getElementById('bim3').value = "" 
-            this.bim4 = document.getElementById('bim4').value = "" 
-        })
+        let controller = new BoletimController() 
     </script>
 </body>

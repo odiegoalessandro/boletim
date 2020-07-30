@@ -1,69 +1,34 @@
 class BoletimView{
-    constructor(nome,materia, ra, bim1, bim2, bim3, bim4, tabela, media){
-        this._nome = nome
-        this._materia = materia
-        this._ra = ra
-        this._bim1 = bim1
-        this._bim2 = bim2
-        this._bim3 = bim3
-        this._bim4 = bim4
-        this._media = media
-        this._tabela = tabela       
+    constructor(elementoDOM){
+        this.tabela = elementoDOM
     }
-    mostraNaTela(){
-        if(this._nome.length > 0
-            && this._materia.length > 0
-            && this._ra.length > 0
-            && this._bim1.length > 0
-            && this._bim2.length > 0
-            && this._bim3.length > 0
-            && this._bim4.length > 0){
-            this.tr_boletim = document.createElement('tr') 
-        
-            this.td_nome = document.createElement('td')
-            this.td_nome.innerText = this._nome
-        
-            this.td_materia = document.createElement('td')
-            this.td_materia.innerText = this._materia
-        
-            this.td_ra = document.createElement('td')
-            this.td_ra.innerText = this._ra
-            
-            this.td_bim1 = document.createElement('td')
-            this.td_bim1.innerText = this._bim1
-          
-            this.td_bim2 = document.createElement('td')
-            this.td_bim2.innerText = this._bim2
-           
-            this.td_bim3 = document.createElement('td')
-            this.td_bim3.innerText = this._bim3
-            
-            this.td_bim4 = document.createElement('td')
-            this.td_bim4.innerText = this._bim4
-            
-            this.td_media = document.createElement('td')
-            this.td_media.innerText = this._media
+    mostraNaTela(dadosDoAluno){
+        console.log(dadosDoAluno)
+        let aluno = this.criaTr(dadosDoAluno)    
+        console.log(aluno)
 
-            this.tr_boletim.appendChild(this.td_nome)
-            this.tr_boletim.appendChild(this.td_materia)
-            this.tr_boletim.appendChild(this.td_ra)
-            this.tr_boletim.appendChild(this.td_bim1)
-            this.tr_boletim.appendChild(this.td_bim2)
-            this.tr_boletim.appendChild(this.td_bim3)
-            this.tr_boletim.appendChild(this.td_bim4)
-            this.tr_boletim.appendChild(this.td_media)
+       this.tabela.appendChild(aluno)
+    }
+    criaTr(linha){
+        var criarLinha = document.createElement('tr')
+        criarLinha.appendChild(this.criaTd(linha.nome, "nome"))
+        criarLinha.appendChild(this.criaTd(linha.materia, "materia"))
+        criarLinha.appendChild(this.criaTd(linha.ra, "ra"))
+        criarLinha.appendChild(this.criaTd(linha.bim1, "bim1"))
+        criarLinha.appendChild(this.criaTd(linha.bim2, "bim2"))
+        criarLinha.appendChild(this.criaTd(linha.bim3, "bim3"))
+        criarLinha.appendChild(this.criaTd(linha.bim4, "bim4"))
+        criarLinha.appendChild(this.criaTd(linha.media, linha.verificaAprovacao))
 
-            this._tabela.appendChild(this.tr_boletim)
-
-            if(this._media >= 5){
-                this.td_media.style.color = "blue"
-            }
-            else{
-                this.td_media.style.color = "red"
-            }
-        }
-        else{
-            alert('invalido')
-       }
+        return criarLinha
+    }
+    criaTd(slot, classe){
+        var criarColuna = document.createElement('td')
+        criarColuna.setAttribute("class", classe)
+        criarColuna.textContent = slot
+        return criarColuna
+    }
+    atualizacao(informacao){
+        this.mostraNaTela(informacao)
     }
 }
