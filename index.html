@@ -19,16 +19,16 @@
                 <th>Media</th>
             </tr>
        </thead>
-       <tbody id="corpo-tabela">
+       <tbody id="table-body">
 
        </tbody>
    </table>
    
    <section class="container">
         <form id="form">
-            <input type="text" class="input center" id="nome" placeholder="Nome do aluno" required>
-            <input type="number" id="registro-do-aluno" class="input center" placeholder="RA do aluno" required>
-            <input type="text" id="materia" class="input center" placeholder="Materia" required>
+            <input type="text" class="input center" id="name" placeholder="Nome do aluno" required>
+            <input type="number" id="ra" class="input center" placeholder="RA do aluno" required>
+            <input type="text" id="avarege" class="input center" placeholder="Materia" required>
             <input type="number" id="bim1" class="input center" maxlength="2" placeholder="Nota do 1˚ bimestre" required>
             <input type="number" id="bim2" class="input center" maxlength="2" placeholder="Nota do 2˚ bimestre" required>
             <input type="number" id="bim3" class="input center" maxlength="2" placeholder="Nota do 3˚ bimestre" required>
@@ -36,11 +36,4 @@
             <button class="btn center" id="btn-add" onclick="controller.mandaParaView(event)">Adicionar</button>
         </form>
    </section>
-
-   <script src="./Controller/BoletimController.js"></script>
-   <script src="./Model/BoletimModel.js"></script>
-   <script src="./View/BoletimView.js"></script>
-   <script>
-        let controller = new BoletimController() 
-    </script>
 </body>

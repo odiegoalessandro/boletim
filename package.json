@@ -1,0 +1,23 @@
+{
+  "name": "boletim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odiegoalessandro/boletim.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/odiegoalessandro/boletim/issues"
+  },
+  "homepage": "https://github.com/odiegoalessandro/boletim#readme",
+  "dependencies": {
+    "typescript": "^4.0.2"
+  }
+}
