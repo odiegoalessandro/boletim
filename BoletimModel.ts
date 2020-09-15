@@ -36,4 +36,12 @@ class BoletimModel{
     get avarege(){
         return (this.bim1 + this.bim2 + this.bim3 + this.bim4) / 4
     }
+    verifyAprovetion(){
+        if(this.avarege >= 5){
+            return "aprovado"
+        }
+        else{
+            return "reprovado"
+        }
+    }
 }
