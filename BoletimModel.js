@@ -1,6 +1,6 @@
 "use strict";
-var BoletimModel = /** @class */ (function () {
-    function BoletimModel(name, ra, bim1, bim2, bim3, bim4, dicipline) {
+class BoletimModel {
+    constructor(name, ra, bim1, bim2, bim3, bim4, dicipline) {
         this._name = name;
         this._ra = ra;
         this._bim1 = bim1;
@@ -9,54 +9,36 @@ var BoletimModel = /** @class */ (function () {
         this._bim4 = bim4;
         this._dicipline = dicipline;
     }
-    Object.defineProperty(BoletimModel.prototype, "name", {
-        get: function () {
-            return this._name;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(BoletimModel.prototype, "dicipline", {
-        get: function () {
-            return this._dicipline;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(BoletimModel.prototype, "bim1", {
-        get: function () {
-            return this._bim1;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(BoletimModel.prototype, "bim2", {
-        get: function () {
-            return this._bim2;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(BoletimModel.prototype, "bim3", {
-        get: function () {
-            return this._bim3;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(BoletimModel.prototype, "bim4", {
-        get: function () {
-            return this._bim4;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(BoletimModel.prototype, "avarege", {
-        get: function () {
-            return (this.bim1 + this.bim2 + this.bim3 + this.bim4) / 4;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return BoletimModel;
-}());
+    get name() {
+        return this._name;
+    }
+    get dicipline() {
+        return this._dicipline;
+    }
+    get bim1() {
+        return Number(this._bim1);
+    }
+    get bim2() {
+        return Number(this._bim2);
+    }
+    get bim3() {
+        return Number(this._bim3);
+    }
+    get bim4() {
+        return Number(this._bim4);
+    }
+    get ra() {
+        return this._ra;
+    }
+    get avarege() {
+        let avarege;
+        avarege = Number((this.bim1 + this.bim2 + this.bim3 + this.bim4) / 4);
+        return avarege;
+    }
+    get verifyAprovetion() {
+        if (this.avarege < 5) {
+            return "reprovado";
+        }
+        return "aprovado";
+    }
+}
