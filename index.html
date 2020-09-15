@@ -33,7 +33,14 @@
             <input type="number" id="bim2" class="input center" maxlength="2" placeholder="Nota do 2˚ bimestre" required>
             <input type="number" id="bim3" class="input center" maxlength="2" placeholder="Nota do 3˚ bimestre" required>
             <input type="number" id="bim4" class="input center" maxlength="2" placeholder="Nota do 4˚ bimestre" required>
-            <button class="btn center" id="btn-add" onclick="controller.mandaParaView(event)">Adicionar</button>
+            <button class="btn center" id="btn-add" onclick="controller.sendForView(event)">Adicionar</button>
         </form>
    </section>
+
+   <script src="./BoletimController.js"></script>    
+   <script src="./BoletimModel.js"></script>
+   <script src="./BoletimView.js"></script>
+   <script>
+       controller = new BoletimController()
+   </script>
 </body>

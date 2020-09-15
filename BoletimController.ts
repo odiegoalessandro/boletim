@@ -20,7 +20,9 @@ class BoletimController{
     createStudent(){
         new BoletimModel(this._name, this._ra, this._bim1, this._bim2, this._bim3, this._bim4, this._dicipline)
     }
-    sendForView(){
+    sendForView(event){
+        event.preventDefault()
+
         new BoletimView(this._table).update(this.createStudent())
     }
 }
